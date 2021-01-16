@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.backendless.Backendless;
 import com.backendless.BackendlessUser;
+import com.backendless.UserService;
 import com.backendless.async.callback.AsyncCallback;
 import com.backendless.exceptions.BackendlessFault;
 
@@ -27,31 +28,6 @@ public class SignIn extends AppCompatActivity {
         Backendless.initApp( getApplicationContext(),
                 Defaults.APPLICATION_ID,
                 Defaults.API_KEY );
-
-//        //check if user is already logged in with a valid login
-//        AsyncCallback<Boolean> isValidLoginCallback = new AsyncCallback<Boolean>()
-//        {
-//            @Override
-//            public void handleResponse( Boolean response )
-//            {
-//                Log.i( "MYAPP", "[ASYNC] Is login valid? - " + response );
-//                //if logged in, skip to homepage
-//                if (response) {
-//                    View v = findViewById(R.id.email);
-//                    Intent i = new Intent(v.getContext(), Homepage.class);
-//                    startActivity(i);
-//                }
-//            }
-//
-//            @Override
-//            public void handleFault( BackendlessFault fault )
-//            {
-//                Log.i( "MYAPP", "Error - " + fault );
-//            }
-//
-//        };
-//
-//        Backendless.UserService.isValidLogin( isValidLoginCallback );
 
     }
 
@@ -73,6 +49,7 @@ public class SignIn extends AppCompatActivity {
                 // user has been logged in
                 Intent i = new Intent(v.getContext(), Homepage.class);
                 startActivity(i);
+
                 Log.i("loggedin?", "true");
             }
 
