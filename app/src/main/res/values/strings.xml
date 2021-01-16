@@ -2,5 +2,9 @@
     <string name="app_name">VHLApp</string>
     <string name="login_string">Sign In</string>
     <string name="signup_string">Sign Up</string>
+    <string name="title_activity_logo_launch">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_launch_logo">FullscreenActivity</string>
 
 </resources>
