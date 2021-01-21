@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.vhlapp">
-
     <!-- backendless apis communicate w/ server -->
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:allowClearUserData="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.VHLApp">
-
+        <activity
+            android:name=".WebHomepage"
+            android:label="@string/title_activity_web_homepage"
+            android:theme="@style/Theme.VHLApp.NoActionBar"></activity>
         <activity
             android:name=".LaunchLogo"
             android:label="@string/app_name">
@@ -22,24 +25,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".SignUp" />
 
-        <activity android:name=".SignUp"> </activity>
-
-        <activity
-            android:name=".newPage"
-            android:exported="true"
-            android:label="New Page"> </activity>
-
-        <activity android:name=".SignIn">
-        </activity>
-
+        <activity android:name=".SignIn" />
         <activity
             android:name=".Homepage"
             android:exported="true"
-            android:label="Home" >
-
-        </activity>
-
+            android:label="Home" />
     </application>
 
 </manifest>
