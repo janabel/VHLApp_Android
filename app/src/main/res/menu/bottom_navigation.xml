@@ -16,5 +16,10 @@
         android:id="@+id/nav_handbook"
         android:icon="@drawable/ic_baseline_menu_book_24"/>
 
+    <item
+        android:title="Emergency"
+        android:id="@+id/nav_emergency"
+        android:icon="@drawable/ic_emergency_ambulance_svgrepo_com"/>
+
 
 </menu>

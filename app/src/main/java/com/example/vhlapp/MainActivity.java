@@ -83,6 +83,9 @@ public class MainActivity extends AppCompatActivity {
                         case R.id.nav_handbook:
                             selectedFragment = new HandbookFragment();
                             break;
+                        case R.id.nav_emergency:
+                            selectedFragment = new EmergencyFragment();
+                            break;
                     }
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                             selectedFragment).commit();
