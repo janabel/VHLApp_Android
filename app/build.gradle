@@ -40,6 +40,9 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
+    //your own!
+    implementation 'com.google.android.material:material:1.1.0'
+
     implementation group: 'com.backendless', name: 'backendless', version: '6.1.2'
     // required for real-time database and real-time messaging
     implementation ('io.socket:socket.io-client:1.0.0') {
