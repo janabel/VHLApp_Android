@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.VHLApp">
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".Notifications"></activity>
+        <activity android:name=".MainActivity" />
         <activity
             android:name=".WebHomepage"
             android:label="@string/title_activity_web_homepage"
