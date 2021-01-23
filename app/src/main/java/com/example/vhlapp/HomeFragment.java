@@ -33,7 +33,7 @@ public class HomeFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        ListView listview = (ListView) view.findViewById(R.id.listview);
+        ListView listview = (ListView) view.findViewById(R.id.listview_homepage);
 
         ArrayList<String> arrayList = new ArrayList<>();
         arrayList.add("Homepage");

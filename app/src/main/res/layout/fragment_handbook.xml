@@ -2,13 +2,12 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_blue_bright">
+    >
 
-    <TextView
+    <ListView
+        android:id="@+id/listview_handbook"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Handbook Fragment"
-        android:textSize="30sp"
-        android:layout_centerInParent="true"/>
+        android:isScrollContainer="true" />
 
 </RelativeLayout>

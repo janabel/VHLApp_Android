@@ -1,25 +1,23 @@
 package com.example.vhlapp;
 
+//THIS SENTIRE PAGE IS USELESS
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.backendless.Backendless;
-import com.backendless.BackendlessUser;
 import com.backendless.async.callback.AsyncCallback;
 import com.backendless.exceptions.BackendlessFault;
 import com.backendless.persistence.DataQueryBuilder;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -32,7 +30,7 @@ public class Homepage extends AppCompatActivity {
         setContentView(R.layout.activity_homepage);
 
         ArrayList<String> arrayList = new ArrayList<>();
-        ListView listview = (ListView) findViewById(R.id.listview);
+        ListView listview = (ListView) findViewById(R.id.listview_homepage);
 
         arrayList.add("Homepage");
         arrayList.add("Clinical Care Center Feedback Form");

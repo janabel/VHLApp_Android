@@ -43,7 +43,7 @@ public class LaunchLogo extends AppCompatActivity {
                             Intent intent = new Intent(LaunchLogo.this, MainActivity.class);
                             startActivity(intent);
                         }
-                    }, 2000);
+                    }, 1000);
 
                 } else {
                     Handler handler = new Handler();
@@ -53,7 +53,7 @@ public class LaunchLogo extends AppCompatActivity {
                             Intent intent = new Intent(LaunchLogo.this, SignIn.class);
                             startActivity(intent);
                         }
-                    }, 2000);
+                    }, 1000);
                 }
             }
 

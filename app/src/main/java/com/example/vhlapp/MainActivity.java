@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setTitle("Home");
 
         //top menu button
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -74,8 +75,12 @@ public class MainActivity extends AppCompatActivity {
                         case R.id.nav_main:
                             break;
                         case R.id.nav_notifs:
-                            Intent i = new Intent(MainActivity.this, Notifications.class);
-                            startActivity(i);
+                            Intent toNotifs = new Intent(MainActivity.this, Notifications.class);
+                            startActivity(toNotifs);
+                            break;
+                        case R.id.nav_settings:
+                            Intent toSettings = new Intent(MainActivity.this, Settings.class);
+                            startActivity(toSettings);
                             break;
                         case R.id.nav_logout:
                             logout();
@@ -95,15 +100,19 @@ public class MainActivity extends AppCompatActivity {
                     switch (item.getItemId()) {
                         case R.id.nav_home:
                             selectedFragment = new HomeFragment();
+                            setTitle("Home");
                             break;
                         case R.id.nav_calendar:
                             selectedFragment = new CalendarFragment();
+                            setTitle("Calendar");
                             break;
                         case R.id.nav_handbook:
                             selectedFragment = new HandbookFragment();
+                            setTitle("Handbook");
                             break;
                         case R.id.nav_emergency:
                             selectedFragment = new EmergencyFragment();
+                            setTitle("Emergency");
                             break;
                     }
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
