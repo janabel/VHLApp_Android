@@ -51,7 +51,7 @@ public class SignUp extends AppCompatActivity {
                     // user has been registered and now can login
                     TextView t = findViewById(R.id.email);
                     String input = t.getText().toString();
-                    Intent i = new Intent(v.getContext(), Homepage.class);
+                    Intent i = new Intent(v.getContext(), MainActivity.class);
                     i.putExtra("name", input);
                     startActivity(i);
                 }

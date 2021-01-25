@@ -3,6 +3,7 @@ package com.example.vhlapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -27,24 +28,38 @@ public class HandbookPDF extends Activity implements OnPageChangeListener, OnLoa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_handbook_p_d_f);
 
+        Intent p = getIntent();
+        int page = p.getIntExtra("pageNumber", 0);
 
         pdfView = (PDFView)findViewById(R.id.pdfView);
-        displayFromAsset(SAMPLE_FILE);
-    }
-
-    private void displayFromAsset(String assetFileName) {
-        pdfFileName = assetFileName;
 
         pdfView.fromAsset(SAMPLE_FILE)
-                .defaultPage(pageNumber)
+                .defaultPage(page-1) //because of 0-indexing
                 .enableSwipe(true)
                 .swipeHorizontal(true)
                 .onPageChange(this)
                 .enableAnnotationRendering(true)
                 .onLoad(this)
                 .scrollHandle(new DefaultScrollHandle(this))
+                .pageSnap(true)
                 .load();
+
     }
+
+//    private void displayFromAsset(String assetFileName) {
+//        pdfFileName = assetFileName;
+//
+//        pdfView.fromAsset(SAMPLE_FILE)
+//                .defaultPage(page)
+//                .enableSwipe(true)
+//                .swipeHorizontal(true)
+//                .onPageChange(this)
+//                .enableAnnotationRendering(true)
+//                .onLoad(this)
+//                .scrollHandle(new DefaultScrollHandle(this))
+//                .pageSnap(true)
+//                .load();
+//    }
 
     @Override
     public void onPageChanged(int page, int pageCount) {

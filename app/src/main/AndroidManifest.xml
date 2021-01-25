@@ -15,7 +15,8 @@
         <activity android:name=".HandbookPDF"
             android:parentActivityName=".MainActivity">
         </activity>
-        <activity android:name=".Settings" />
+        <activity android:name=".Settings"
+            android:parentActivityName=".MainActivity"> </activity>
         <activity android:name=".Notifications"
             android:parentActivityName=".MainActivity">
         </activity>

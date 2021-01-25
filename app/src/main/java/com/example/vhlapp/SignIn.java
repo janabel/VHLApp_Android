@@ -47,7 +47,7 @@ public class SignIn extends AppCompatActivity {
             public void handleResponse( BackendlessUser user )
             {
                 // user has been logged in
-                Intent i = new Intent(v.getContext(), Homepage.class);
+                Intent i = new Intent(v.getContext(), MainActivity.class);
                 startActivity(i);
 
                 Log.i("loggedin?", "true");
