@@ -4,22 +4,26 @@
     <item
         android:title="Home"
         android:id="@+id/nav_home"
-        android:icon="@drawable/ic_baseline_home_24" />
+        android:icon="@drawable/ic_baseline_home_24"
+        android:iconTint="@color/white"/>
 
     <item
         android:title="Calendar"
         android:id="@+id/nav_calendar"
-        android:icon="@drawable/ic_baseline_calendar_today_24"/>
+        android:icon="@drawable/ic_baseline_calendar_today_24"
+        android:iconTint="@color/white"/>
 
     <item
         android:title="Handbook"
         android:id="@+id/nav_handbook"
-        android:icon="@drawable/ic_baseline_menu_book_24"/>
+        android:icon="@drawable/ic_baseline_menu_book_24"
+        android:iconTint="@color/white"/>
 
     <item
         android:title="Emergency"
         android:id="@+id/nav_emergency"
-        android:icon="@drawable/ic_emergency_ambulance_svgrepo_com"/>
+        android:icon="@drawable/ic_emergency_ambulance_svgrepo_com"
+        android:iconTint="@color/white"/>
 
 
 </menu>

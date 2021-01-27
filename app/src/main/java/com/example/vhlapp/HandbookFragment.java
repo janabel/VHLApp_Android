@@ -6,15 +6,18 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,6 +30,7 @@ import java.security.Key;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Hashtable;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -36,7 +40,7 @@ public class HandbookFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        Map<String, Integer> map = new HashMap<String, Integer>();
+        LinkedHashMap<String, Integer> map = new LinkedHashMap<String, Integer>();
         map.put("What is VHL?", 12);
         map.put("What is Cancer?", 13);
         map.put("Commonly Occurring VHL Manifestations", 14);
@@ -85,9 +89,21 @@ public class HandbookFragment extends Fragment {
         for (Map.Entry<String,Integer> entry : map.entrySet())
             arrayList.add(entry.getKey());
 
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getActivity(),
-                android.R.layout.simple_expandable_list_item_1,
-                arrayList);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getActivity(), R.layout.mytextview, arrayList) {
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent) {
+                /// Get the Item from ListView
+                View view = super.getView(position, convertView, parent);
+
+                TextView tv = view.findViewById(android.R.id.text1);
+                int fontSize = BaseActivity.getDefaults("fontSize", getContext());
+                // Set the text size to progress value for ListView each item
+                tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, fontSize);
+                view.setMinimumHeight(64);
+
+                return view;
+            }
+        };
 
 // idk how to save the following code lol colors keep changing while scrolling??
 //        {
@@ -121,13 +137,10 @@ public class HandbookFragment extends Fragment {
                 Intent i = new Intent(getActivity(), HandbookPDF.class);
                 i.putExtra("pageNumber", pageNumber);
                 startActivity(i);
-
             }
         });
 
         // fixed
         return view;
-
     }
-
 }
