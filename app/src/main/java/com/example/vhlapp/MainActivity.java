@@ -7,9 +7,12 @@ import androidx.appcompat.graphics.drawable.DrawerArrowDrawable;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -33,6 +36,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setTitle("Home");
+
+        if (savedInstanceState != null) {
+        int savedFragmentId = savedInstanceState.getInt("fragment");
+        Fragment savedFragment = getSupportFragmentManager().findFragmentById(savedFragmentId);
+        getSupportFragmentManager().beginTransaction().replace(savedFragmentId,
+                savedFragment).commit(); }
 
         //top menu button
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -66,7 +75,6 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
     private NavigationView.OnNavigationItemSelectedListener navListener =
             new NavigationView.OnNavigationItemSelectedListener() {
                 @Override
@@ -92,6 +100,9 @@ public class MainActivity extends AppCompatActivity {
             };
 
 
+    FragmentManager fragMgr = getSupportFragmentManager();
+    FragmentTransaction fragTrans = fragMgr.beginTransaction();
+
     private BottomNavigationView.OnNavigationItemSelectedListener bottomNavListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
@@ -115,11 +126,27 @@ public class MainActivity extends AppCompatActivity {
                             setTitle("Emergency");
                             break;
                     }
+
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                            selectedFragment).commit();
+                            selectedFragment, "MY_FRAGMENT").commit();
+
                     return true;
                 }
             };
+
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        try {
+            Fragment currentFragment = (Fragment) getSupportFragmentManager().findFragmentByTag("MY_FRAGMENT");
+            int id = currentFragment.getId();
+            outState.putInt("fragment", id);
+        } catch(Exception e){
+            Log.i("save failed?", "true");
+        }
+    }
+
 
     public void logout() {
         Backendless.UserService.logout(new AsyncCallback<Void>()
