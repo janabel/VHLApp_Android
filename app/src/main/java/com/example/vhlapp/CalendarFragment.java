@@ -1,5 +1,6 @@
 package com.example.vhlapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -27,7 +28,8 @@ public class CalendarFragment extends Fragment {
         FloatingActionButton addButton = view.findViewById(R.id.floatingActionButton);
         addButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                v.setEnabled(false);
+                Intent i = new Intent(getActivity(), AddActivity.class);
+                startActivity(i);
             }
         });
         CalendarView calender = view.findViewById(R.id.calendar);

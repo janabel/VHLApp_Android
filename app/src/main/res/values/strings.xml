@@ -7,19 +7,16 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="title_activity_launch_logo">FullscreenActivity</string>
     <string name="title_activity_web_homepage">WebHomepage</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
-
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
+    <string name="title_activity_personalized_notification">PersonalizedNotification</string>
+    <string name="time">Time</string>
+    <string name="title">  Title</string>
+    <string name="date">Date</string>
+    <string name="specialist">  Specialist</string>
+=======
     <string name="font_size">Font Size</string>
     <string name="show_app_info">Show App Info</string>
+>>>>>>> a3a4829250d669660f206a3dfab6f25778a625ec
 
 </resources>

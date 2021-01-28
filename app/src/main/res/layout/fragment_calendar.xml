@@ -24,7 +24,8 @@
         app:backgroundTint="#DDDDDD"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_add" />
+        app:rippleColor="#FFFFFF"
+        app:srcCompat="@android:drawable/ic_input_add" />
 
     <TextView
         android:id="@+id/dateView"
@@ -32,7 +33,6 @@
         android:layout_height="45dp"
         android:layout_marginTop="8dp"
         android:gravity="center"
-        android:text="Set the Date"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

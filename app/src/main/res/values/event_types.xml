@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="event_types_array">
+        <item>General Appointment</item>
+        <item>Specialist Appointment</item>
+        <item>Lab Testing</item>
+        <item>Scans</item>
+        <item>Surgery</item>
+    </string-array>
+</resources>
