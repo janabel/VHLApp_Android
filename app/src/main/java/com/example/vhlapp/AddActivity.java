@@ -14,7 +14,7 @@ public class AddActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add);
     }
     public void newEventHandler(View v){
-        Intent i = new Intent(this, Event.class);
+        Intent i = new Intent(this, EventActivity.class);
         startActivity(i);
     }
     public void newPersonalizedNotificationHandler(View v){

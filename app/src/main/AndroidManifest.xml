@@ -17,7 +17,7 @@
             android:label="Personalized Notification"
             android:parentActivityName=".AddActivity" />
         <activity
-            android:name=".Event"
+            android:name=".EventActivity"
             android:label="Event"
             android:parentActivityName=".AddActivity" />
         <activity

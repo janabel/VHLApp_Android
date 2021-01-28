@@ -58,7 +58,7 @@ public class EmergencyFragment extends Fragment {
                 View view = super.getView(position, convertView, parent);
 
                 TextView tv = view.findViewById(android.R.id.text1);
-                int fontSize = BaseActivity.getDefaults("fontSize", getContext());
+                int fontSize = BaseActivity.getDefaultsInt("fontSize", getContext());
                 // Set the text size to progress value for ListView each item
                 tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, fontSize);
                 view.setMinimumHeight(64);
