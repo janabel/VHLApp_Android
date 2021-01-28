@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="notification_types_array">
+        <item>no notification before</item>
+        <item>1 minute before</item>
+        <item>5 minute before</item>
+        <item>10 minute before</item>
+        <item>15 minute before</item>
+        <item>30 minute before</item>
+        <item>1 hour before</item>
+        <item>1 day before</item>
+        <item>2 days before</item>
+        <item>1 week before</item>
+    </string-array>
+</resources>

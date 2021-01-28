@@ -21,6 +21,7 @@ import com.backendless.async.callback.AsyncCallback;
 import com.backendless.exceptions.BackendlessFault;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
+import android.util.Log;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -139,5 +140,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 
 }
