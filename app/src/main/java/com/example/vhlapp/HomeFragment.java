@@ -1,5 +1,6 @@
 package com.example.vhlapp;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -7,6 +8,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import android.preference.PreferenceManager;
@@ -36,8 +38,10 @@ public class HomeFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        //inflate view
         View view = inflater.inflate(R.layout.fragment_home, container, false);
+
+        //alert made if show app info is checked
+        Alert.makeAlert("View Web Links", getContext());
 
         //create listview, arraylist, and adapter to link the two
         ListView listview = (ListView) view.findViewById(R.id.listview_homepage);
@@ -61,7 +65,7 @@ public class HomeFragment extends Fragment {
                 View view = super.getView(position, convertView, parent);
 
                 TextView tv = view.findViewById(android.R.id.text1);
-                int fontSize = BaseActivity.getDefaults("fontSize", getContext());
+                int fontSize = BaseActivity.getDefaultsInt("fontSize", getContext());
                 // Set the text size to progress value for ListView each item
                 tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, fontSize);
                 view.setMinimumHeight(64);

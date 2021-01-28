@@ -11,16 +11,28 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class BaseActivity extends AppCompatActivity {
 
-    public static void setDefaults(String key, int value, Context context) {
+    public static void setDefaultsInt(String key, int value, Context context) {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = preferences.edit();
         editor.putInt(key, value);
         editor.apply();
     }
 
-    public static int getDefaults(String key, Context context) {
+    public static int getDefaultsInt(String key, Context context) {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
         return preferences.getInt(key, 16);
+    }
+
+    public static void setDefaultsBoolean(String key, boolean value, Context context) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putBoolean(key, value);
+        editor.apply();
+    }
+
+    public static boolean getDefaultsBoolean(String key, Context context) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        return preferences.getBoolean(key, false);
     }
 
 

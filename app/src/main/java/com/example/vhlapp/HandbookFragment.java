@@ -1,11 +1,14 @@
 package com.example.vhlapp;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
@@ -39,6 +42,9 @@ public class HandbookFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+        //alert made if show app info is checked
+        Alert.makeAlert("VHLA Handbook", getContext());
 
         LinkedHashMap<String, Integer> map = new LinkedHashMap<String, Integer>();
         map.put("What is VHL?", 12);
@@ -96,7 +102,7 @@ public class HandbookFragment extends Fragment {
                 View view = super.getView(position, convertView, parent);
 
                 TextView tv = view.findViewById(android.R.id.text1);
-                int fontSize = BaseActivity.getDefaults("fontSize", getContext());
+                int fontSize = BaseActivity.getDefaultsInt("fontSize", getContext());
                 // Set the text size to progress value for ListView each item
                 tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, fontSize);
                 view.setMinimumHeight(64);
