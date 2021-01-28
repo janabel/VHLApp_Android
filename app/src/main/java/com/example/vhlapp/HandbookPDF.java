@@ -19,6 +19,7 @@ public class HandbookPDF extends Activity implements OnPageChangeListener, OnLoa
     private static final String TAG = HandbookPDF.class.getSimpleName();
     public static final String SAMPLE_FILE = "VHL_handbook.pdf";
 
+
     PDFView pdfView;
     Integer pageNumber = 0;
     String pdfFileName;
@@ -27,12 +28,12 @@ public class HandbookPDF extends Activity implements OnPageChangeListener, OnLoa
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_handbook_p_d_f);
+        setTitle("Handbook PDF");
 
         Intent p = getIntent();
         int page = p.getIntExtra("pageNumber", 0);
 
         pdfView = (PDFView)findViewById(R.id.pdfView);
-
         pdfView.fromAsset(SAMPLE_FILE)
                 .defaultPage(page-1) //because of 0-indexing
                 .enableSwipe(true)
@@ -45,21 +46,6 @@ public class HandbookPDF extends Activity implements OnPageChangeListener, OnLoa
                 .load();
 
     }
-
-//    private void displayFromAsset(String assetFileName) {
-//        pdfFileName = assetFileName;
-//
-//        pdfView.fromAsset(SAMPLE_FILE)
-//                .defaultPage(page)
-//                .enableSwipe(true)
-//                .swipeHorizontal(true)
-//                .onPageChange(this)
-//                .enableAnnotationRendering(true)
-//                .onLoad(this)
-//                .scrollHandle(new DefaultScrollHandle(this))
-//                .pageSnap(true)
-//                .load();
-//    }
 
     @Override
     public void onPageChanged(int page, int pageCount) {
