@@ -7,8 +7,11 @@ import androidx.appcompat.graphics.drawable.DrawerArrowDrawable;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,12 +24,21 @@ import com.backendless.async.callback.AsyncCallback;
 import com.backendless.exceptions.BackendlessFault;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
 import android.util.Log;
+
+
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
+    private ArrayList<Event> eventList;
 
 
     @Override
@@ -34,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setTitle("Home");
+
 
         //top menu button
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -56,6 +69,44 @@ public class MainActivity extends AppCompatActivity {
                     new HomeFragment()).commit();
         }
 
+    }
+
+
+    public void onResume() {
+        super.onResume();
+        Log.d("yay", "ok 10");
+        setEventList();
+        Intent i = getIntent();
+        if (i.hasExtra("event")) {
+            Log.d("yay", "ok 11");
+            eventList.add((Event) i.getSerializableExtra("event"));
+            Log.d("yay", "ok 12");
+            saveCalendarEvents();
+            Log.d("yay", eventList.toString());
+        }
+
+    }
+    public void setEventList(){
+        SharedPreferences sharedPref = MainActivity.this.getPreferences(Context.MODE_PRIVATE);
+        Gson gson = new Gson();
+        String jsonEvents = sharedPref.getString("key", null);
+        if (jsonEvents == null){
+            eventList = new ArrayList<Event>();
+        }else {
+            Type type = new TypeToken<List<Event>>() {}.getType();
+            eventList = gson.fromJson(jsonEvents, type);
+        }
+    }
+
+    public void saveCalendarEvents(){
+        SharedPreferences sharedPref = MainActivity.this.getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+
+        Gson gson = new Gson();
+        String jsonEvents = gson.toJson(eventList);
+
+        editor.putString("key", jsonEvents);
+        editor.apply();
     }
 
     @Override
@@ -104,9 +155,16 @@ public class MainActivity extends AppCompatActivity {
                             setTitle("Home");
                             break;
                         case R.id.nav_calendar:
-                            selectedFragment = new CalendarFragment();
+
+                            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                            Fragment fragment = CalendarFragment.newInstance(eventList);
+                            ft.replace(R.id.fragment_container, fragment);
                             setTitle("Calendar");
-                            break;
+                            ft.commit();
+                            return true;
+                            //selectedFragment = new CalendarFragment();
+                            //setTitle("Calendar");
+                            //break;
                         case R.id.nav_handbook:
                             selectedFragment = new HandbookFragment();
                             setTitle("Handbook");

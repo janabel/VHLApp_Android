@@ -8,24 +8,31 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.widget.AdapterView;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.ArrayAdapter;
 import android.view.View;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
 import java.util.Calendar;
+import java.io.Serializable;
 
-public class EventActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class EventActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
-    String eventType;
-    String date;
-    String time;
-    String notification_time;
+    private String eventType;
+    private Calendar date;
+    private Calendar time;
+    private String notification_time;
+    private String title;
+    private String specialist;
+    private String description;
 
 
     @Override
@@ -56,6 +63,18 @@ public class EventActivity extends AppCompatActivity implements AdapterView.OnIt
         spinner2.setOnItemSelectedListener(this);
 
 
+    }
+
+
+    public void handleText(){
+        EditText title_view = findViewById(R.id.title);
+        title = title_view.getText().toString();
+
+        EditText specialist_view = findViewById(R.id.specialist);
+        specialist = specialist_view.getText().toString();
+
+        EditText description_view = findViewById(R.id.editTextTextMultiLine);
+        description = description_view.getText().toString();
 
     }
 
@@ -102,8 +121,13 @@ public class EventActivity extends AppCompatActivity implements AdapterView.OnIt
 
                     @Override
                     public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                        date = dayOfMonth + "/" + (monthOfYear + 1) + "/" + year;
-                        ((Button) v).setText(date);
+                        Calendar dateCalendar = Calendar.getInstance();
+                        dateCalendar.set(Calendar.YEAR, year);
+                        dateCalendar.set(Calendar.MONTH, monthOfYear);
+                        dateCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                        String date_string = dayOfMonth + "/" + (monthOfYear + 1) + "/" + year;
+                        ((Button) v).setText(date_string);
+                        date = dateCalendar;
                     }
                 }, mYear, mMonth, mDay);
         datePickerDialog.show();
@@ -129,8 +153,9 @@ public class EventActivity extends AppCompatActivity implements AdapterView.OnIt
                         String am_pm = "PM";
                         if (timeCalendar.get(Calendar.AM_PM) == Calendar.AM)
                             am_pm = "AM";
-                        time = hourOfDay + ":" + minute + " " + am_pm;
-                        ((Button) v).setText(time);
+                        String time_string = hourOfDay + ":" + minute + " " + am_pm;
+                        ((Button) v).setText(time_string);
+                        time = timeCalendar;
                     }
                 }, mHour, mMinute, false);
         timePickerDialog.show();
@@ -143,8 +168,14 @@ public class EventActivity extends AppCompatActivity implements AdapterView.OnIt
     }
 
     public void saveButtonHandler(View v){
+        Log.d("yay", "ok");
+        handleText();
+        Event event = new Event(title, specialist, eventType, date, time, notification_time, description, true);
         Toast.makeText(this, "Event Saved", Toast.LENGTH_LONG).show();
         Intent i = new Intent(this, MainActivity.class);
+        Log.d("yay", "ok 1");
+        i.putExtra("event", (Serializable) event);
+        Log.d("yay", "ok 2");
         startActivity(i);
     }
 
