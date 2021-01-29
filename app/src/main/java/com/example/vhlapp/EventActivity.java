@@ -85,7 +85,7 @@ public class EventActivity extends AppCompatActivity implements AdapterView.OnIt
         }
         if(spin.getId() == R.id.spinner2)
         {
-            notification_time = "no notification before";
+            notification_time = "No notification before";
         }
 
 

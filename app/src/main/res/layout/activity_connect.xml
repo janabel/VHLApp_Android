@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageButton
+        android:id="@+id/fbIcon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="120dp"
+        android:adjustViewBounds="true"
+        android:background="@color/white"
+        android:onClick="facebook"
+        android:padding="0dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_facebook_icon_2013" />
+
+    <ImageButton
+        android:id="@+id/email_icon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginRight="60dp"
+        android:adjustViewBounds="true"
+        android:background="@color/white"
+        android:onClick="email"
+        android:padding="0dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_gmail_icon_logo_svg_vector" />
+
+    <ImageButton
+        android:id="@+id/phone_icon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginRight="60dp"
+        android:adjustViewBounds="true"
+        android:background="@color/white"
+        android:onClick="phone"
+        android:padding="0dp"
+        android:scaleType="fitCenter"
+        android:tint="#673AB7"
+        app:layout_constraintBottom_toTopOf="@+id/blog_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/email_icon"
+        app:srcCompat="@android:drawable/stat_sys_phone_call" />
+
+    <ImageButton
+        android:id="@+id/twitter_icon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginBottom="120dp"
+        android:adjustViewBounds="true"
+        android:background="@color/white"
+        android:onClick="twitter"
+        android:padding="0dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_twitter_logo_svg_vector" />
+
+    <ImageButton
+        android:id="@+id/insta_icon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
+        android:adjustViewBounds="true"
+        android:background="@color/white"
+        android:onClick="instagram"
+        android:padding="0dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/twitter_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fbIcon"
+        app:srcCompat="@drawable/instagram_logo_png_2427" />
+
+    <ImageButton
+        android:id="@+id/blog_icon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginRight="60dp"
+        android:layout_marginBottom="120dp"
+        android:adjustViewBounds="true"
+        android:background="@color/white"
+        android:onClick="blog"
+        android:padding="0dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/vhl_icon" />
+
+    <TextView
+        android:id="@+id/facebook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Facebook"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/fbIcon"
+        app:layout_constraintHorizontal_bias="0.384"
+        app:layout_constraintStart_toStartOf="@+id/fbIcon"
+        app:layout_constraintTop_toBottomOf="@+id/fbIcon" />
+
+    <TextView
+        android:id="@+id/email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Email"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/email_icon"
+        app:layout_constraintStart_toStartOf="@+id/email_icon"
+        app:layout_constraintTop_toBottomOf="@+id/email_icon" />
+
+    <TextView
+        android:id="@+id/insta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Instagram"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/insta_icon"
+        app:layout_constraintStart_toStartOf="@+id/insta_icon"
+        app:layout_constraintTop_toBottomOf="@+id/insta_icon" />
+
+    <TextView
+        android:id="@+id/blog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="VHLA Blog"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/blog_icon"
+        app:layout_constraintStart_toStartOf="@+id/blog_icon"
+        app:layout_constraintTop_toBottomOf="@+id/blog_icon" />
+
+    <TextView
+        android:id="@+id/twitter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Twitter"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/twitter_icon"
+        app:layout_constraintStart_toStartOf="@+id/twitter_icon"
+        app:layout_constraintTop_toBottomOf="@+id/twitter_icon" />
+
+    <TextView
+        android:id="@+id/phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Phone"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/phone_icon"
+        app:layout_constraintStart_toStartOf="@+id/phone_icon"
+        app:layout_constraintTop_toBottomOf="@+id/phone_icon" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

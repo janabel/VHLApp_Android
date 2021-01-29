@@ -36,8 +36,13 @@
         <activity android:name=".MainActivity" />
         <activity
             android:name=".WebHomepage"
-            android:label="@string/title_activity_web_homepage"
-            android:theme="@style/Theme.VHLApp.NoActionBar" />
+            android:label="VHLA Website"
+            android:parentActivityName=".MainActivity"
+             />
+        <activity
+            android:name=".Connect"
+            android:label="Connect with VHL Alliance"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".LaunchLogo"
             android:label="@string/app_name">
@@ -52,3 +57,6 @@
     </application>
 
 </manifest>
+
+
+<!--    android:theme="@style/Theme.VHLApp.NoActionBar"-->
