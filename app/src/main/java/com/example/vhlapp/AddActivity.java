@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 public class AddActivity extends AppCompatActivity {
 
@@ -21,4 +22,5 @@ public class AddActivity extends AppCompatActivity {
         Intent i = new Intent(this, PersonalizedNotification.class);
         startActivity(i);
     }
+
 }

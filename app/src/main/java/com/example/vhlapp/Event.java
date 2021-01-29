@@ -1,9 +1,9 @@
 package com.example.vhlapp;
 
+import java.io.Serializable;
 import java.util.Calendar;
 
-public class Event {
-    private String mID;
+public class Event implements Serializable {
     private String mTitle;
     private String mSpecialist;
     private String mType;
@@ -13,9 +13,8 @@ public class Event {
     private String description;
     private boolean isCompleted;
 
-    public Event(String mID, String mTitle, String mSpecialist, String mType, Calendar mDate,
+    public Event(String mTitle, String mSpecialist, String mType, Calendar mDate,
                  Calendar mTime, String mNotificationTime, String description, boolean isCompleted) {
-        this.mID = mID;
         this.mTitle = mTitle;
         this.mSpecialist = mSpecialist;
         this.mType = mType;
@@ -26,13 +25,7 @@ public class Event {
         this.isCompleted = isCompleted;
     }
 
-    public String getmID() {
-        return mID;
-    }
 
-    public void setmID(String mID) {
-        this.mID = mID;
-    }
 
     public String getmTitle() {
         return mTitle;
@@ -96,5 +89,19 @@ public class Event {
 
     public void setCompleted(boolean completed) {
         isCompleted = completed;
+    }
+
+    @Override
+    public String toString() {
+        return "Event{" +
+                "mTitle='" + mTitle + '\'' +
+                ", mSpecialist='" + mSpecialist + '\'' +
+                ", mType='" + mType + '\'' +
+                ", mDate=" + mDate +
+                ", mTime=" + mTime +
+                ", mNotificationTime='" + mNotificationTime + '\'' +
+                ", description='" + description + '\'' +
+                ", isCompleted=" + isCompleted +
+                '}';
     }
 }
