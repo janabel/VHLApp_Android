@@ -68,7 +68,7 @@ public class HomeFragment extends Fragment {
                 int fontSize = BaseActivity.getDefaultsInt("fontSize", getContext());
                 // Set the text size to progress value for ListView each item
                 tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, fontSize);
-                view.setMinimumHeight(64);
+                //view.setMinimumHeight(64);
 
                 return view;
             }
