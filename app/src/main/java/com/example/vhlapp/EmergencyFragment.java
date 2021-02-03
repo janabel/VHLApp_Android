@@ -34,6 +34,8 @@ public class EmergencyFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_emergency, container, false);
 
+        Alert.makeAlert("Emergency Contacts", getContext());
+
         ListView physicianHeader = (ListView) view.findViewById(R.id.header_physician);
         ListView physicianlv = (ListView) view.findViewById(R.id.listview_physician);
         ListView caregiverHeader = (ListView) view.findViewById(R.id.header_caregiver);
