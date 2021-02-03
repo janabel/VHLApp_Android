@@ -3,7 +3,7 @@
     android:id="@android:id/text1"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:minHeight="70sp"
+    android:minHeight="64sp"
     android:paddingStart="?android:attr/expandableListPreferredItemPaddingLeft"
     android:paddingEnd="20sp"
     android:textAppearance="?android:attr/textAppearanceListItem"

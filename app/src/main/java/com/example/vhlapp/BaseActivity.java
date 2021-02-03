@@ -2,10 +2,8 @@
 
 package com.example.vhlapp;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.os.Parcelable;
 import android.preference.PreferenceManager;
 
 import androidx.appcompat.app.AppCompatActivity;

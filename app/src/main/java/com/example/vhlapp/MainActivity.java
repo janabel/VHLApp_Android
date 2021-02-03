@@ -1,25 +1,22 @@
 package com.example.vhlapp;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.graphics.drawable.DrawerArrowDrawable;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.backendless.Backendless;
 import com.backendless.async.callback.AsyncCallback;
@@ -29,14 +26,11 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import android.util.Log;
-
-
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
@@ -91,19 +85,21 @@ public class MainActivity extends AppCompatActivity {
             saveCalendarEvents();
             Log.d("yay", eventList.toString());
         }
-
     }
+
+
     public void setEventList(){
         SharedPreferences sharedPref = MainActivity.this.getPreferences(Context.MODE_PRIVATE);
         Gson gson = new Gson();
         String jsonEvents = sharedPref.getString("key", null);
         if (jsonEvents == null){
             eventList = new ArrayList<Event>();
-        }else {
+        } else {
             Type type = new TypeToken<List<Event>>() {}.getType();
             eventList = gson.fromJson(jsonEvents, type);
         }
     }
+
 
     public void saveCalendarEvents(){
         SharedPreferences sharedPref = MainActivity.this.getPreferences(Context.MODE_PRIVATE);
@@ -115,6 +111,7 @@ public class MainActivity extends AppCompatActivity {
         editor.putString("key", jsonEvents);
         editor.apply();
     }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
@@ -149,7 +146,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             };
 
-
     FragmentManager fragMgr = getSupportFragmentManager();
     FragmentTransaction fragTrans = fragMgr.beginTransaction();
 
@@ -164,7 +160,6 @@ public class MainActivity extends AppCompatActivity {
                             setTitle("Home");
                             break;
                         case R.id.nav_calendar:
-
                             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
                             Fragment fragment = CalendarFragment.newInstance(eventList);
                             ft.replace(R.id.fragment_container, fragment);
@@ -183,10 +178,8 @@ public class MainActivity extends AppCompatActivity {
                             setTitle("Emergency");
                             break;
                     }
-
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                             selectedFragment, "MY_FRAGMENT").commit();
-
                     return true;
                 }
             };
@@ -203,6 +196,35 @@ public class MainActivity extends AppCompatActivity {
             Log.i("save failed?", "true");
         }
     }
+
+
+    public void addContact(View v) {
+        Fragment contactsFragment = new ContactsFragment();
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        findViewById(R.id.contact_fragment_container).bringToFront();
+        transaction.replace(R.id.contact_fragment_container, contactsFragment); // give your fragment container id in first parameter
+        transaction.addToBackStack(null);  // if written, this transaction will be added to backstack
+        transaction.commit();
+
+        TextView tv = (TextView) ((View) v.getParent()).findViewById(R.id.em_header);
+        String contactType = (String) tv.getText();
+        setDefaultsString("contact type", contactType, getBaseContext());
+//        Log.d("type", contactType);
+
+    }
+
+
+//    public void removeContact(View v) {
+//        DBHelper dbHelper = new DBHelper( getApplicationContext(), "contacts.db", null, 1);
+//        dbHelper.getAll();
+//
+//        View item = (View) v.getParent();
+//        String name = (String) ((TextView) item.findViewById(R.id.em_text)).getText();
+//        item.setVisibility(View.GONE);
+//
+//        dbHelper.deleteOne(dbHelper.getByName(name));
+//
+//    }
 
 
     public void logout() {

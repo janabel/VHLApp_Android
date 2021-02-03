@@ -14,9 +14,12 @@
     <string name="title">  Title</string>
     <string name="date">Date</string>
     <string name="specialist">  Specialist</string>
-=======
+    =======
     <string name="font_size">Font Size</string>
     <string name="show_app_info">Show App Info</string>
->>>>>>> a3a4829250d669660f206a3dfab6f25778a625ec
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_contact">Add Contact</string>
+    >>>>>>> a3a4829250d669660f206a3dfab6f25778a625ec
 
 </resources>
