@@ -20,12 +20,13 @@ public class Contact {
 
     @Override
     public String toString() {
-        return "Contact{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", type='" + type + '\'' +
-                ", number='" + number + '\'' +
-                '}';
+        return name;
+//        return "Contact{" +
+//                "id=" + id +
+//                ", name='" + name + '\'' +
+//                ", type='" + type + '\'' +
+//                ", number='" + number + '\'' +
+//                '}';
     }
 
     public int getId() {

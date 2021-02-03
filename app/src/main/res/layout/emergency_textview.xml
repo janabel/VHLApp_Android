@@ -31,11 +31,31 @@
         android:layout_marginRight="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
+        android:maxWidth="45dp"
+        android:maxHeight="45dp"
+        android:scaleType="fitCenter"
         android:text="Delete"
         app:srcCompat="@android:drawable/ic_menu_delete"
         android:focusable="false"
         android:focusableInTouchMode="false"
         />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@android:drawable/sym_action_call"
+        android:rotation="270"
+        android:minHeight="45dp"
+        android:minWidth="45dp"
+        android:scaleType="fitCenter"
+        android:layout_toLeftOf="@id/delete_btn"
+        android:layout_toStartOf="@id/delete_btn"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:layout_centerVertical="true"
+        android:paddingRight="8dp"
+        android:paddingEnd="8dp" />
 
 
 </RelativeLayout>

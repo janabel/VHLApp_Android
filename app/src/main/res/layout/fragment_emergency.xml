@@ -8,9 +8,45 @@
     >
 
     <ListView
-        android:id="@+id/listview_emergency"
+        android:layout_alignParentTop="true"
+        android:id="@+id/header_physician"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        />
+
+    <ListView
+        android:layout_below="@id/header_physician"
+        android:id="@+id/listview_physician"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <ListView
+        android:layout_below="@id/listview_physician"
+        android:id="@+id/header_caregiver"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <ListView
+        android:layout_below="@id/header_caregiver"
+        android:id="@+id/listview_caregiver"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <ListView
+        android:layout_below="@id/listview_caregiver"
+        android:id="@+id/header_specialists"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <ListView
+        android:id="@+id/listview_specialists"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/header_specialists"
         />
 
     <FrameLayout

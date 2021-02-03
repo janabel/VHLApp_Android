@@ -1,9 +1,7 @@
 package com.example.vhlapp;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
-import android.net.Uri;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,24 +9,25 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
-public class EmergencyAdapter extends BaseAdapter implements ListAdapter {
+public class EmergencyHeaderAdapter extends BaseAdapter implements ListAdapter {
 
     Context context;
-    ArrayList<Contact> data;
+    ArrayList<String> data;
     private static LayoutInflater inflater = null;
 
-
-    public EmergencyAdapter(Context context, ArrayList<Contact> arrayList) {
+    public EmergencyHeaderAdapter(Context context, ArrayList<String> arrayList) {
         this.context = context;
         this.data = arrayList;
         inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
+
 
     @Override
     public int getCount() {
@@ -36,7 +35,7 @@ public class EmergencyAdapter extends BaseAdapter implements ListAdapter {
     }
 
     @Override
-    public Contact getItem(int position) {
+    public String getItem(int position) {
         return data.get(position);
     }
 
@@ -52,35 +51,21 @@ public class EmergencyAdapter extends BaseAdapter implements ListAdapter {
         TextView tv;
         FloatingActionButton b;
 
-        v = inflater.inflate(R.layout.emergency_textview, null);
-        tv = (TextView) v.findViewById(R.id.em_text);
-        b = (FloatingActionButton) v.findViewById(R.id.delete_btn);
+        v = inflater.inflate(R.layout.emergency_header, null);
+        tv = (TextView) v.findViewById(R.id.em_header);
+        b = (FloatingActionButton) v.findViewById(R.id.add_btn);
         b.setFocusable(false);
         b.setFocusableInTouchMode(false);
-        v.setBackgroundColor(Color.rgb(255, 255, 255));
+        v.setBackgroundColor(Color.rgb(250, 128, 114));
 
         v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Contact contactToCall = getItem(position);
-                String phoneNumber = contactToCall.getNumber();
-                Uri number = Uri.parse("tel:" + phoneNumber);
-                Intent callIntent = new Intent(Intent.ACTION_DIAL, number);
-                v.getContext().startActivity(callIntent);
+                Toast.makeText(v.getContext(), "Click the plus to add contact", Toast.LENGTH_LONG).show();
             }
         });
 
-        b.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DBHelper dbHelper = new DBHelper( v.getContext().getApplicationContext(), "contacts.db", null, 1);
-                Contact contactToDelete = getItem(position);
-                dbHelper.deleteOne(contactToDelete);
-                notifyDataSetChanged();
-            }
-        });
-
-        tv.setText((String) data.get(position).getName());
+        tv.setText(data.get(position));
         tv.setFocusable(false);
         tv.setFocusableInTouchMode(false);
 
