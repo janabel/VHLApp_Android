@@ -18,6 +18,7 @@
         android:paddingRight="?android:attr/expandableListPreferredItemPaddingLeft"
         android:focusable="false"
         android:focusableInTouchMode="false"
+        android:textColor="@color/black"
         />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -31,14 +32,12 @@
         android:layout_marginRight="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:maxWidth="45dp"
-        android:maxHeight="45dp"
-        android:scaleType="fitCenter"
-        android:text="Delete"
         app:srcCompat="@android:drawable/ic_menu_delete"
         android:focusable="false"
         android:focusableInTouchMode="false"
-        />
+        app:fabSize="mini"
+        android:scaleType="center"
+        android:contentDescription="@string/delete" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -55,7 +54,10 @@
         android:focusableInTouchMode="false"
         android:layout_centerVertical="true"
         android:paddingRight="8dp"
-        android:paddingEnd="8dp" />
+        android:paddingEnd="8dp"
+        android:paddingLeft="8dp"
+        android:paddingStart="8dp"
+        android:contentDescription="@string/call" />
 
 
 </RelativeLayout>

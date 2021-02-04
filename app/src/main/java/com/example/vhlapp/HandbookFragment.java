@@ -95,7 +95,7 @@ public class HandbookFragment extends Fragment {
                         || tv.getText() == "Discussing VHL with Your Family"
                         || tv.getText() == "VHL Research"
                         || tv.getText() == "VHL Support Resources") {
-                    tv.setBackgroundColor(Color.rgb(102,102,255));
+                    tv.setBackgroundColor(Color.rgb(177, 156, 217));
                 } else {
                     tv.setBackgroundColor( getResources().getColor(android.R.color.white));
                 }

@@ -18,6 +18,7 @@
         android:layout_alignParentStart="true"
         android:focusable="false"
         android:focusableInTouchMode="false"
+        android:textColor="@color/black"
         />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -33,10 +34,11 @@
         android:layout_marginBottom="8dp"
         android:onClick="addContact"
         app:srcCompat="@android:drawable/ic_menu_add"
-        android:text="Add"
         android:contentDescription="@string/add_contact"
         android:focusable="false"
         android:focusableInTouchMode="false"
+        app:fabSize="mini"
+        android:scaleType="center"
         />
 
 

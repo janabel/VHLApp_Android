@@ -17,9 +17,14 @@
     =======
     <string name="font_size">Font Size</string>
     <string name="show_app_info">Show App Info</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="add_contact">Add Contact</string>
+    <string name="notifications">Notifications</string>
+    <string name="main">Main</string>
+    <string name="settings">Settings</string>
+    <string name="logout">Logout</string>
+    <string name="delete">Delete</string>
+    <string name="call">Call</string>
     >>>>>>> a3a4829250d669660f206a3dfab6f25778a625ec
 
 </resources>
