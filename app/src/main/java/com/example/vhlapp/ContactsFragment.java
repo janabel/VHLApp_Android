@@ -36,6 +36,12 @@ public class ContactsFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_contacts, container, false);
         ListView listview = (ListView) view.findViewById(R.id.listview_contacts);
 
+        TextView textview = (TextView) view.findViewById(R.id.contact_label);
+        textview.setBackgroundColor(Color.rgb(243, 195, 140));
+        int fontSize = BaseActivity.getDefaultsInt("fontSize", getContext());
+        textview.setTextSize(TypedValue.COMPLEX_UNIT_SP, fontSize);
+        view.setMinimumHeight(48);
+
         Cursor cursor = getContext().getContentResolver().query(ContactsContract.Contacts.CONTENT_URI, null, null, null, null);
         map = new LinkedHashMap<String, String>();
 
@@ -64,12 +70,10 @@ public class ContactsFragment extends Fragment {
         arrayAdapter = new ArrayAdapter<String>(getActivity(), R.layout.mytextview, arrayList) {
             @Override
             public View getView(int position, View convertView, ViewGroup parent) {
-                /// Get the Item from ListView
                 View view = super.getView(position, convertView, parent);
 
                 TextView tv = view.findViewById(android.R.id.text1);
                 int fontSize = BaseActivity.getDefaultsInt("fontSize", getContext());
-                // Set the text size to progress value for ListView each item
                 tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, fontSize);
                 view.setMinimumHeight(48);
                 tv.setBackgroundColor(Color.rgb(255,252,201));

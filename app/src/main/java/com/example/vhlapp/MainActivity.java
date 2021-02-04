@@ -209,22 +209,8 @@ public class MainActivity extends BaseActivity {
         TextView tv = (TextView) ((View) v.getParent()).findViewById(R.id.em_header);
         String contactType = (String) tv.getText();
         setDefaultsString("contact type", contactType, getBaseContext());
-//        Log.d("type", contactType);
 
     }
-
-
-//    public void removeContact(View v) {
-//        DBHelper dbHelper = new DBHelper( getApplicationContext(), "contacts.db", null, 1);
-//        dbHelper.getAll();
-//
-//        View item = (View) v.getParent();
-//        String name = (String) ((TextView) item.findViewById(R.id.em_text)).getText();
-//        item.setVisibility(View.GONE);
-//
-//        dbHelper.deleteOne(dbHelper.getByName(name));
-//
-//    }
 
 
     public void logout() {

@@ -1,13 +1,10 @@
 package com.example.vhlapp;
 
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.widget.CompoundButton;
 import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.TextView;
-
-import androidx.appcompat.app.AlertDialog;
 
 public class Settings extends BaseActivity {
 
@@ -24,10 +21,11 @@ public class Settings extends BaseActivity {
 
         //setting app info switch listener
         flip.setChecked(getDefaultsBoolean("app info", getBaseContext()));
-//        if (flip.isChecked()) {
-//            //alert made if show app info is checked
-//            Alert.makeAlert("Settings", getBaseContext());
-//        }
+
+        if (getDefaultsBoolean("app info", getBaseContext())) {
+            //alert made if show app info is checked
+            Alert.makeAlert("Settings", Settings.this);
+        }
 
         flip.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override

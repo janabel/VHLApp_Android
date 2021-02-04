@@ -1,17 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ContactsFragment"
     android:isScrollContainer="true"
+    android:translationZ="@dimen/cardview_default_elevation"
     android:outlineAmbientShadowColor="@color/cardview_dark_background">
+
+    <TextView
+        android:id="@+id/contact_label"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="@string/contacts"
+        android:gravity="center_vertical"
+        android:paddingLeft="16dp"
+        android:paddingStart="16dp"
+        android:paddingRight="16dp"
+        android:backgroundTint="@color/sandy_brown"
+        />
 
     <ListView
         android:id="@+id/listview_contacts"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/hello_blank_fragment"
+        android:layout_below="@id/contact_label"
+
         />
 
-</FrameLayout>
+</RelativeLayout>
