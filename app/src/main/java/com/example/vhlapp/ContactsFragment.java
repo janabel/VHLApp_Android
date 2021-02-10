@@ -13,7 +13,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -98,10 +97,17 @@ public class ContactsFragment extends Fragment {
                     dbHelper.addOne(contact);
                     Log.d("Clicked?", "true");
                     getActivity().onBackPressed();
+//
+//                    Fragment frg = null;
+//                    frg = getParentFragment();
+//                    final FragmentTransaction ft = getParentFragmentManager().beginTransaction();
+//                    ft.detach(frg);
+//                    ft.attach(frg);
+//                    ft.commit();
 
                 } catch (Exception e) {
-                    Toast.makeText(getContext(), "Error", Toast.LENGTH_LONG);
                     Log.d("Clicked?", "false");
+                    Log.e("Error", "yes");
                 }
             }
         });

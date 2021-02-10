@@ -1,12 +1,12 @@
 package com.example.vhlapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.backendless.Backendless;
 import com.backendless.BackendlessUser;
@@ -26,13 +26,13 @@ public class SignUp extends AppCompatActivity {
 //                Defaults.API_KEY );
     }
 
-    public void signIn(View v) {
+    public void toSignIn(View v) {
         Intent i = new Intent(this, SignIn.class);
         startActivity(i);
     }
 
 
-    public void getIn(View v) {
+    public void signUp(View v) {
 //        Log.d("info", input);
 
         //need to add user data into server user list

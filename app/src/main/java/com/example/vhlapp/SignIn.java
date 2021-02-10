@@ -1,7 +1,5 @@
 package com.example.vhlapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,9 +7,10 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.backendless.Backendless;
 import com.backendless.BackendlessUser;
-import com.backendless.UserService;
 import com.backendless.async.callback.AsyncCallback;
 import com.backendless.exceptions.BackendlessFault;
 
@@ -32,12 +31,12 @@ public class SignIn extends AppCompatActivity {
     }
 
 
-    public void signUp(View v) {
+    public void toSignUp(View v) {
         Intent i = new Intent(this, SignUp.class);
         startActivity(i);
     }
 
-    public void getIn(View v) {
+    public void signIn(View v) {
 
         String email = ((TextView)findViewById(R.id.email)).getText().toString();
         String pass = ((TextView)findViewById(R.id.password)).getText().toString();

@@ -17,6 +17,8 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
@@ -29,6 +31,10 @@ public class EmergencyFragment extends Fragment {
     ArrayList<String> arrayList;
     EmergencyAdapter emergencyAdapter;
 
+    ListView physicianHeader;
+    ListView caregiverHeader;
+    ListView specialistHeader;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -36,11 +42,11 @@ public class EmergencyFragment extends Fragment {
 
         Alert.makeAlert("Emergency Contacts", getContext());
 
-        ListView physicianHeader = (ListView) view.findViewById(R.id.header_physician);
+        physicianHeader = (ListView) view.findViewById(R.id.header_physician);
         ListView physicianlv = (ListView) view.findViewById(R.id.listview_physician);
-        ListView caregiverHeader = (ListView) view.findViewById(R.id.header_caregiver);
+        caregiverHeader = (ListView) view.findViewById(R.id.header_caregiver);
         ListView caregiverlv = (ListView) view.findViewById(R.id.listview_caregiver);
-        ListView specialistHeader = (ListView) view.findViewById(R.id.header_specialists);
+        specialistHeader = (ListView) view.findViewById(R.id.header_specialists);
         ListView specialistlv = (ListView) view.findViewById(R.id.listview_specialists);
 
         ArrayList<String> PCP = new ArrayList<>();
@@ -92,31 +98,12 @@ public class EmergencyFragment extends Fragment {
         EmergencyAdapter specialistAdapter = new EmergencyAdapter(getActivity(), specialistList);
         specialistlv.setAdapter(specialistAdapter);
 
-//
-//        map = new LinkedHashMap<String, String>();
-//
-//        map.put("Primary Care Physician", "");
-//        for (Contact element : contactList)
-//            if (element.getType().equals("Primary Care Physician")) {
-//                map.put(element.getName(), element.getNumber());
-//            }
-//        map.put("Caregiver", "");
-//        for (Contact element : contactList)
-//            if (element.getType().equals("Caregiver")) {
-//                map.put(element.getName(), element.getNumber());
-//            }
-//        map.put("Specialists", "");
-//        for (Contact element : contactList)
-//            if (element.getType().equals("Specialists")) {
-//                map.put(element.getName(), element.getNumber());
-//            }
-
-        physicianHeader.bringToFront();
-        physicianlv.bringToFront();
-        caregiverHeader.bringToFront();
-        caregiverlv.bringToFront();
-        specialistHeader.bringToFront();
-        specialistlv.bringToFront();
+//        physicianHeader.bringToFront();
+//        physicianlv.bringToFront();
+//        caregiverHeader.bringToFront();
+//        caregiverlv.bringToFront();
+//        specialistHeader.bringToFront();
+//        specialistlv.bringToFront();
 
 
         if( ContextCompat.checkSelfPermission(getContext(), Manifest.permission.READ_CONTACTS ) != PackageManager.PERMISSION_GRANTED ) {
@@ -147,11 +134,20 @@ public class EmergencyFragment extends Fragment {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             dialog.dismiss();
+
+                            FloatingActionButton b1 = physicianHeader.getChildAt(0).findViewById(R.id.add_btn);
+                            FloatingActionButton b2 = caregiverHeader.getChildAt(0).findViewById(R.id.add_btn);
+                            FloatingActionButton b3 = specialistHeader.getChildAt(0).findViewById(R.id.add_btn);
+
+                            b1.setEnabled(false);
+                            b2.setEnabled(false);
+                            b3.setEnabled(false);
                         }
                     })
                     .show();
         } else {
             ActivityCompat.requestPermissions(getActivity(), new String[] {Manifest.permission.READ_CONTACTS}, requestcode);
+
         }
     }
 
