@@ -19,11 +19,7 @@ public class SignUp extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
-//        Backendless.initApp(this, "8BDC2255-6F5F-EBA0-FF6E-60686A950A00", "F9FAC3D3-696E-451B-BA27-E735D5D3ED3D");
-//        Backendless.setUrl( Defaults.SERVER_URL );
-//        Backendless.initApp( getApplicationContext(),
-//                Defaults.APPLICATION_ID,
-//                Defaults.API_KEY );
+
     }
 
     public void toSignIn(View v) {

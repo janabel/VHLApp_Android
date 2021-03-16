@@ -1,12 +1,11 @@
 package com.example.vhlapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class WebHomepage extends AppCompatActivity {
 
@@ -17,8 +16,11 @@ public class WebHomepage extends AppCompatActivity {
         //retrieve website URL, passed from item clicked on homepage
         Intent i = getIntent();
         String URL = i.getStringExtra("URL");
-        Log.d("retrieved url: ", "blah");
 
+        String pageName = i.getStringExtra("pageName");
+        setTitle(pageName);
+
+//        Log.d("retrieved url: ", "blah");
 
         //open up URL *within* the app
         WebView webView = findViewById(R.id.webview1);

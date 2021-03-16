@@ -86,9 +86,11 @@ public class DBHelper extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery(query, null);
         if (cursor.moveToFirst()) {
             cursor.close();
+            db.close();
             return true;
         } else {
             cursor.close();
+            db.close();
             return false;
         }
 

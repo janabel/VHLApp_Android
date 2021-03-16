@@ -5,19 +5,10 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.webkit.WebView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.Spinner;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.backendless.Backendless;
@@ -65,12 +56,12 @@ public class Connect extends AppCompatActivity {
         DataQueryBuilder queryBuilder = DataQueryBuilder.create();
         queryBuilder.setWhereClause(whereClause);
 
-        Backendless.Data.of("WebLinks").find(queryBuilder, new AsyncCallback<List<Map>>() {
+        Backendless.Data.of("WebLink").find(queryBuilder, new AsyncCallback<List<Map>>() {
             @Override
             public void handleResponse(List<Map> webLink) {
                 // every loaded object from the "WebLinks" table is now an individual java.util.Map
                 Map URLmap = webLink.get(0);
-                String URL = (String) URLmap.get("URL");
+                String URL = (String) URLmap.get("url");
 
                 Uri number = Uri.parse("tel:" + URL);
                 Intent callIntent = new Intent(Intent.ACTION_DIAL, number);
@@ -93,12 +84,12 @@ public class Connect extends AppCompatActivity {
         DataQueryBuilder queryBuilder = DataQueryBuilder.create();
         queryBuilder.setWhereClause(whereClause);
 
-        Backendless.Data.of("WebLinks").find(queryBuilder, new AsyncCallback<List<Map>>() {
+        Backendless.Data.of("WebLink").find(queryBuilder, new AsyncCallback<List<Map>>() {
             @Override
             public void handleResponse(List<Map> webLink) {
                 // every loaded object from the "WebLinks" table is now an individual java.util.Map
                 Map URLmap = webLink.get(0);
-                String URL = (String) URLmap.get("URL");
+                String URL = (String) URLmap.get("url");
 
                 Intent emailIntent = new Intent(Intent.ACTION_SEND);
                 // The intent does not have a URI, so declare the "text/plain" MIME type
@@ -122,12 +113,12 @@ public class Connect extends AppCompatActivity {
         DataQueryBuilder queryBuilder = DataQueryBuilder.create();
         queryBuilder.setWhereClause(whereClause);
 
-        Backendless.Data.of("WebLinks").find(queryBuilder, new AsyncCallback<List<Map>>() {
+        Backendless.Data.of("WebLink").find(queryBuilder, new AsyncCallback<List<Map>>() {
             @Override
             public void handleResponse(List<Map> webLink) {
                 // every loaded object from the "WebLinks" table is now an individual java.util.Map
                 Map URLmap = webLink.get(0);
-                String URL = (String) URLmap.get("URL");
+                String URL = (String) URLmap.get("url");
 
                 Uri insta = Uri.parse(URL);
                 Intent i = new Intent(Intent.ACTION_VIEW, insta);
@@ -154,12 +145,12 @@ public class Connect extends AppCompatActivity {
         DataQueryBuilder queryBuilder = DataQueryBuilder.create();
         queryBuilder.setWhereClause(whereClause);
 
-        Backendless.Data.of("WebLinks").find(queryBuilder, new AsyncCallback<List<Map>>() {
+        Backendless.Data.of("WebLink").find(queryBuilder, new AsyncCallback<List<Map>>() {
             @Override
             public void handleResponse(List<Map> webLink) {
                 // every loaded object from the "WebLinks" table is now an individual java.util.Map
                 Map URLmap = webLink.get(0);
-                String URL = (String) URLmap.get("URL");
+                String URL = (String) URLmap.get("url");
 
                 Uri insta = Uri.parse(URL);
                 Intent i = new Intent(Intent.ACTION_VIEW, insta);
@@ -188,15 +179,16 @@ public class Connect extends AppCompatActivity {
         DataQueryBuilder queryBuilder = DataQueryBuilder.create();
         queryBuilder.setWhereClause(whereClause);
 
-        Backendless.Data.of("WebLinks").find(queryBuilder, new AsyncCallback<List<Map>>() {
+        Backendless.Data.of("WebLink").find(queryBuilder, new AsyncCallback<List<Map>>() {
             @Override
             public void handleResponse(List<Map> webLink) {
                 // every loaded object from the "WebLinks" table is now an individual java.util.Map
                 Map URLmap = webLink.get(0);
-                String URL = (String) URLmap.get("URL");
+                String URL = (String) URLmap.get("url");
 
                 Intent i = new Intent(getBaseContext(), WebHomepage.class);
                 i.putExtra("URL", URL);
+                i.putExtra("pageName", "Facebook");
                 startActivity(i);
             }
 
@@ -216,15 +208,16 @@ public class Connect extends AppCompatActivity {
         DataQueryBuilder queryBuilder = DataQueryBuilder.create();
         queryBuilder.setWhereClause(whereClause);
 
-        Backendless.Data.of("WebLinks").find(queryBuilder, new AsyncCallback<List<Map>>() {
+        Backendless.Data.of("WebLink").find(queryBuilder, new AsyncCallback<List<Map>>() {
             @Override
             public void handleResponse(List<Map> webLink) {
                 // every loaded object from the "WebLinks" table is now an individual java.util.Map
                 Map URLmap = webLink.get(0);
-                String URL = (String) URLmap.get("URL");
+                String URL = (String) URLmap.get("url");
 
                 Intent i = new Intent(getBaseContext(), WebHomepage.class);
                 i.putExtra("URL", URL);
+                i.putExtra("pageName", "Blog");
                 startActivity(i);
             }
 

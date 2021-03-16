@@ -1,18 +1,7 @@
 package com.example.vhlapp;
 
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.database.DataSetObserver;
-import android.graphics.Color;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
-import androidx.fragment.app.Fragment;
-
-import android.preference.PreferenceManager;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -20,23 +9,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.BaseExpandableListAdapter;
 import android.widget.ExpandableListAdapter;
-import android.widget.ExpandableListView;
-import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import com.backendless.Backendless;
 import com.backendless.async.callback.AsyncCallback;
 import com.backendless.exceptions.BackendlessFault;
 import com.backendless.persistence.DataQueryBuilder;
 
-import org.w3c.dom.Text;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -103,22 +89,24 @@ public class HomeFragment extends Fragment {
 
                 } else {
 
-                String whereClause = "position = " + position;
+                String whereClause = "android_position = " + position;
                 Log.d("whereclause: ", whereClause);
                 DataQueryBuilder queryBuilder = DataQueryBuilder.create();
                 queryBuilder.setWhereClause(whereClause);
 
-                Backendless.Data.of("WebLinks").find(queryBuilder,
+                Backendless.Data.of("WebLink").find(queryBuilder,
                         new AsyncCallback<List<Map>>() {
                             @Override
                             public void handleResponse(List<Map> webLink) {
                                 // every loaded object from the "WebLinks" table is now an individual java.util.Map
                                 Log.d("success?", "yes");
-                                Map URLmap = webLink.get(0);
-                                String URL = (String) URLmap.get("URL");
+                                Map URLmap = webLink.get(0);  //webLink is a list of maps, .get(0) just gets the only map inside
+                                String URL = (String) URLmap.get("url");
+                                String pageName = (String) URLmap.get("name");
 
                                 Intent i = new Intent(getActivity(), WebHomepage.class);
                                 i.putExtra("URL", URL);
+                                i.putExtra("pageName", pageName);
                                 startActivity(i);
                             }
 

@@ -38,7 +38,6 @@
         <activity android:name=".MainActivity" />
         <activity
             android:name=".WebHomepage"
-            android:label="VHLA Website"
             android:parentActivityName=".MainActivity"
              />
         <activity
