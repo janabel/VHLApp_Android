@@ -1,64 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/emergency_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
-    android:isScrollContainer="true"
-    android:id="@+id/emergency_fragment"
-    >
+    android:isScrollContainer="true">
+
+    <TextView
+        android:id="@+id/medicalCardButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="64dp"
+        android:layout_alignParentTop="true"
+        android:background="#D55454"
+        android:paddingLeft="?android:attr/expandableListPreferredItemPaddingLeft"
+        android:paddingRight="19dp"
+        android:drawableRight="@drawable/ic_emergency_ambulance_svgrepo_com"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:onClick="ER"
+        android:text="Medical Card"
+        android:textColor="@color/white"
+        android:gravity="center_vertical"
+
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        app:cornerRadius="0dp" />
 
     <ListView
-        android:layout_alignParentTop="true"
         android:id="@+id/header_physician"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        />
+        android:layout_below="@id/medicalCardButton" />
 
     <ListView
-        android:layout_below="@id/header_physician"
         android:id="@+id/listview_physician"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        />
+        android:layout_below="@id/header_physician" />
 
     <ListView
-        android:layout_below="@id/listview_physician"
         android:id="@+id/header_caregiver"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        />
+        android:layout_below="@id/listview_physician" />
 
     <ListView
-        android:layout_below="@id/header_caregiver"
         android:id="@+id/listview_caregiver"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        />
+        android:layout_below="@id/header_caregiver" />
 
     <ListView
-        android:layout_below="@id/listview_caregiver"
         android:id="@+id/header_specialists"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        />
+        android:layout_below="@id/listview_caregiver" />
 
     <ListView
         android:id="@+id/listview_specialists"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/header_specialists"
-        />
+        android:layout_below="@id/header_specialists" />
 
     <FrameLayout
         android:id="@+id/contact_fragment_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:focusable="false"
         android:paddingLeft="16dp"
         android:paddingTop="20dp"
         android:paddingRight="16dp"
-        android:paddingBottom="20dp"
-        android:focusable="false"
-        />
+        android:paddingBottom="20dp" />
 
 </RelativeLayout>

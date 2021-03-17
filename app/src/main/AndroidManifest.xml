@@ -14,6 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.VHLApp">
+        <activity android:name=".MedicalCard"></activity>
         <activity
             android:name=".PersonalizedNotification"
             android:label="Personalized Notification"
@@ -38,8 +39,7 @@
         <activity android:name=".MainActivity" />
         <activity
             android:name=".WebHomepage"
-            android:parentActivityName=".MainActivity"
-             />
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".Connect"
             android:label="Connect with VHL Alliance"
@@ -55,13 +55,10 @@
         </activity>
         <activity
             android:name=".SignUp"
-            android:label="Welcome"/>
+            android:label="Welcome" />
         <activity
             android:name=".SignIn"
-            android:label="Welcome"/>
+            android:label="Welcome" />
     </application>
 
 </manifest>
-
-
-<!--    android:theme="@style/Theme.VHLApp.NoActionBar"-->

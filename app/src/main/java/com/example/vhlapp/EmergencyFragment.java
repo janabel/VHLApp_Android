@@ -5,11 +5,13 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -112,6 +114,15 @@ public class EmergencyFragment extends Fragment {
         // fixed
         return view;
 
+    }
+
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        int fontSize = BaseActivity.getDefaultsInt("fontSize", getContext());
+        TextView medicalCardButton = (TextView) getView().findViewById(R.id.medicalCardButton);
+        medicalCardButton.setTextSize(TypedValue.COMPLEX_UNIT_SP, fontSize);
+        medicalCardButton.setMinimumHeight(64);
     }
 
 

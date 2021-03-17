@@ -212,6 +212,10 @@ public class MainActivity extends BaseActivity {
 
     }
 
+    public void ER (View v) {
+        Intent i = new Intent(this, MedicalCard.class);
+        startActivity(i);
+    }
 
     public void logout() {
         Backendless.UserService.logout(new AsyncCallback<Void>()

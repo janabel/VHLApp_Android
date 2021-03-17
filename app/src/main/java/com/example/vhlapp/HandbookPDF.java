@@ -1,11 +1,11 @@
 package com.example.vhlapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+
+import androidx.appcompat.widget.Toolbar;
 
 import com.github.barteksc.pdfviewer.PDFView;
 import com.github.barteksc.pdfviewer.listener.OnLoadCompleteListener;
@@ -28,7 +28,10 @@ public class HandbookPDF extends Activity implements OnPageChangeListener, OnLoa
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_handbook_p_d_f);
-        setTitle("Handbook PDF");
+
+        Toolbar toolbar = ((Toolbar) findViewById(R.id.handbookToolbar));
+        toolbar.setTitle("VHL Handbook");
+        toolbar.setTitleTextColor(android.graphics.Color.WHITE);
 
         Intent p = getIntent();
         int page = p.getIntExtra("pageNumber", 0);
